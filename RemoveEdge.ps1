@@ -53,7 +53,7 @@ function RemoveEdgeChromium {
 	$valueName = "experiment_control_labels"
 	if (Test-Path $keyPath) {
 		$valueExists = Get-ItemProperty -Path $keyPath -Name $valueName -ErrorAction SilentlyContinue
-		if ($valueExists -ne $null) {
+		if ($null -ne $valueExists) {
 			Remove-ItemProperty -Path $keyPath -Name $valueName -Force | Out-Null
 		}
 	}
@@ -89,7 +89,7 @@ function RemoveEdgeAppX {
 
 	# make the Edge AppX able to uninstall and uninstall
 	$user = (Get-CimInstance -ClassName Win32_ComputerSystem | Select-Object -ExpandProperty UserName) -replace ".*\\"
-	$SID = (New-Object System.Security.Principal.NTAccount($env:USERNAME)).Translate([Security.Principal.SecurityIdentifier]).Value
+	$SID = (New-Object System.Security.Principal.NTAccount($user)).Translate([Security.Principal.SecurityIdentifier]).Value
 	New-Item -Path "HKLM:$appxStore\EndOfLife\$SID\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" -Force | Out-Null
 	Get-AppxPackage -Name Microsoft.MicrosoftEdge | Remove-AppxPackage | Out-Null
 	Remove-Item -Path "HKLM:$appxStore\EndOfLife\$SID\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" -Force | Out-Null
@@ -135,7 +135,7 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
     Start-Process PowerShell "-NoProfile -ExecutionPolicy Unrestricted -File `"$PSCommandPath`"" -Verb RunAs; exit
 }
 
-if ($(whoami /user | Select-String "S-1-5-18") -ne $null) {
+if ($null -ne $(whoami /user | Select-String "S-1-5-18")) {
 	Write-Host "This script can't be ran as TrustedInstaller or SYSTEM."
 	Write-Host "Please relaunch this script under a regular admin account.`n"
 	PauseNul "Press any key to exit... "
@@ -145,7 +145,7 @@ if ($(whoami /user | Select-String "S-1-5-18") -ne $null) {
 $removeWebView = $false
 $removeData = $true
 while (!($continue)) {
-	cls; Write-Host "This script will remove Microsoft Edge, as once you install it, you can't normally uninstall it.
+	Clear-Host; Write-Host "This script will remove Microsoft Edge, as once you install it, you can't normally uninstall it.
 Major credit to ave9858: https://gist.github.com/ave9858/c3451d9f452389ac7607c99d45edecc6`n" -ForegroundColor Yellow
 
 	if ($removeWebView) {$colourWeb = "Green"; $textWeb = "Selected"} else {$colourWeb = "Red"; $textWeb = "Unselected"}
@@ -173,7 +173,7 @@ Major credit to ave9858: https://gist.github.com/ave9858/c3451d9f452389ac7607c99
 	}
 }
 
-cls; UninstallAll
+Clear-Host; UninstallAll
 
 Write-Host "`nCompleted." -ForegroundColor Green
 PauseNul "Press any key to exit... "
