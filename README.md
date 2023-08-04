@@ -5,7 +5,7 @@ PowerShell script to remove Microsoft Edge, which is based off of [ave9858's scr
 
 ### For quick removal, use either of these commands in Run (Win + R)
 ```powershell
-powershell iex "&{$(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/get.ps1)} -UninstallAll"
+powershell iex """&{$(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/get.ps1)} -UninstallAll"""
 ```
 ```powershell
 powershell iex(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/get.ps1)
