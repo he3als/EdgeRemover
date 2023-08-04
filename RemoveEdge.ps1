@@ -112,19 +112,18 @@ if ($null -ne $(whoami /user | Select-String "S-1-5-18")) {
 	}
 }
 
-if ($Exit) {
-	$removeData = $true
-	$removeWebView = $true
-	UninstallAll
-	if ($Exit) {exit} else {}
-}
-
 $removeWebView = $true
 $removeData = $true
+
+if ($Exit) {
+	UninstallAll
+	exit
+}
+
 if (!($UninstallAll)) {
 	while (!($continue)) {
 		Clear-Host; Write-Host "This script will remove Microsoft Edge, as once you install it, you can't normally uninstall it.
-	Major credit to ave9858: https://gist.github.com/ave9858/c3451d9f452389ac7607c99d45edecc6`n" -ForegroundColor Yellow
+Major credit to ave9858: https://gist.github.com/ave9858/c3451d9f452389ac7607c99d45edecc6`n" -ForegroundColor Yellow
 
 		if ($removeWebView) {$colourWeb = "Green"; $textWeb = "Selected"} else {$colourWeb = "Red"; $textWeb = "Unselected"}
 		if ($removeData) {$colourData = "Green"; $textData = "Selected"} else {$colourData = "Red"; $textData = "Unselected"}
