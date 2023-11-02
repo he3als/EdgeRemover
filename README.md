@@ -15,8 +15,6 @@ For people that want to implement this in scripts, run `Get-Help .\RemoveEdge.ps
 powershell iex(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/get.ps1)
 ```
 
-### ✅ Credits
-- [he3als](https://github.com/he3als)
-- [Xyueta](https://github.com/Xyueta)
-- [ave9858](https://gist.github.com/ave9858/c3451d9f452389ac7607c99d45edecc6)
-  - Made the gist that this script was based upon
+### ✅ Additional Credits
+- [Xyueta](https://github.com/Xyueta) - small bug fixes
+- [ave9858](https://gist.github.com/ave9858/c3451d9f452389ac7607c99d45edecc6) - found the uninstallation method for Windows 11
