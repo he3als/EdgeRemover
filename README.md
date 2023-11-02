@@ -1,6 +1,8 @@
-<h1 align="center">
+<p align="center">
   <img src="banner.png" alt="EdgeRemover banner" width="800">
-</h1>
+</p>
+
+---
 
 A PowerShell script that aims to non-forcefully remove Microsoft Edge in a user-friendly manner on Windows 10 and 11, based upon [ave9858's uninstallation method](https://gist.github.com/ave9858/c3451d9f452389ac7607c99d45edecc6).
 
