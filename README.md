@@ -2,23 +2,37 @@
   <img src="banner.png" alt="EdgeRemover banner" width="800">
 </p>
 
-<p align="center"><b>A PowerShell script that aims to non-forcefully remove Microsoft Edge in on Windows 10 & 11.</b></p>
+<p align="center"><b>A PowerShell script that aims to non-forcefully uninstall or reinstall Microsoft Edge on Windows 10 & 11.</b></p>
 
 ---
 
 ### ⬇️ Usage
-You can use this command in the Run dialog or Command Prompt for quick access. Alternatively, get the script from the GitHub releases.
-
-For people that want to implement this in scripts, run `Get-Help .\RemoveEdge.ps1`. You can append these arguments to the `get.ps1` snippet.
+You can use the command below in PowerShell to launch the script. Alternatively, get the latest script from the [GitHub releases](https://github.com/he3als/EdgeRemover/releases/latest).
 
 ```powershell
-powershell iex(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/get.ps1)
+iex(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/get.ps1)
 ```
 
 <p align="center">
   <img src="showcase.png" alt="Image of the EdgeRemover UI" width="800">
 </p>
 
+#### 📜 Implementation in Scripts
+
+Download the script and run `Get-Help .\RemoveEdge.ps1` to see its options. You can either use the downloaded file directly with these arguments or put them into the snippet below:
+
+```powershell
+iex (&{$(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/get.ps1)} [ARGUMENTS HERE])
+```
+
+### 🫧 Clearing Edge Blocks
+You can use the command below or download the `ClearUpdateBlocks.ps1` file in the repository to clear all Edge Update policies, including those that block the reinstallation and update of Edge or WebView.
+
+```powershell
+iex (&{$(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/get.ps1)} -ClearUpdateBlocks)
+```
+
 ### ✅ Additional Credits
-- [Xyueta](https://github.com/Xyueta) - small bug fixes
-- [ave9858](https://gist.github.com/ave9858/c3451d9f452389ac7607c99d45edecc6) - found the uninstallation method for Windows 11
+
+- [Xyueta](https://github.com/Xyueta) - minor bug fixes
+- [ave9858](https://gist.github.com/ave9858/c3451d9f452389ac7607c99d45edecc6) - inspired this script
