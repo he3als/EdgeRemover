@@ -26,7 +26,7 @@ iex (&{$(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/get.ps1)}
 ```
 
 ### 🫧 Clearing Edge Blocks
-You can use the command below or download the `ClearUpdateBlocks.ps1` file in the repository to clear all Edge Update policies, including those that block the reinstallation and update of Edge or WebView.
+You can use the command below in PowerShell to clear all EdgeUpdate policies, including those that block the reinstallation and update of Edge or WebView.
 
 ```powershell
 iex (&{$(irm https://raw.githubusercontent.com/he3als/EdgeRemover/main/get.ps1)} -ClearUpdateBlocks)
