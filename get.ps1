@@ -8,7 +8,7 @@ if ([double]"$($ver.Major).$($ver.Minor)" -lt "5.1") {
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 if ($args[0] -eq "-ClearUpdateBlocks") {
-    $download = "https://github.com/he3als/EdgeRemover/releases/latest/download/ClearUpdateBlocks.ps1"
+    $download = "https://raw.githubusercontent.com/he3als/EdgeRemover/main/ClearUpdateBlocks.ps1"
 } else {
     $download = "https://github.com/he3als/EdgeRemover/releases/latest/download/RemoveEdge.ps1"
 }
