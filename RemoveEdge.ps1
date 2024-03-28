@@ -126,7 +126,6 @@ function Uninstall-MsiexecAppByName {
 }
 
 function KillEdgeProcesses {
-	Write-Status "Terminating Microsoft Edge processes..."
 	$ErrorActionPreference = 'SilentlyContinue'
 	foreach ($service in (Get-Service -Name "*edge*" | Where-Object {$_.DisplayName -like "*Microsoft Edge*"}).Name) {
 		Stop-Service -Name $service -Force
@@ -142,7 +141,8 @@ function KillEdgeProcesses {
 
 function RemoveEdgeChromium {
 	$baseKey = "HKLM:\SOFTWARE\WOW6432Node\Microsoft"
-
+	
+	Write-Status "Terminating Microsoft Edge processes..."
 	KillEdgeProcesses
 
 	# check if 'experiment_control_labels' value exists and delete it if found
