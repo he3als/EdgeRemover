@@ -125,10 +125,8 @@ function Uninstall-MsiexecAppByName {
 	}
 }
 
-function RemoveEdgeChromium {
-	$baseKey = "HKLM:\SOFTWARE\WOW6432Node\Microsoft"
-
-	# terminate Edge processes
+function KillEdgeProcesses {
+	Write-Status "Terminating Microsoft Edge processes..."
 	$ErrorActionPreference = 'SilentlyContinue'
 	foreach ($service in (Get-Service -Name "*edge*" | Where-Object {$_.DisplayName -like "*Microsoft Edge*"}).Name) {
 		Stop-Service -Name $service -Force
@@ -139,7 +137,13 @@ function RemoveEdgeChromium {
 	) {
 		Stop-Process -Id $process -Force
 	}
-	$ErrorActionPreference = 'Continue'
+	$ErrorActionPreference = 'Continue'	
+}
+
+function RemoveEdgeChromium {
+	$baseKey = "HKLM:\SOFTWARE\WOW6432Node\Microsoft"
+
+	KillEdgeProcesses
 
 	# check if 'experiment_control_labels' value exists and delete it if found
 	$keyPath = Join-Path -Path $baseKey -ChildPath "EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}"
@@ -465,6 +469,7 @@ if ($UninstallEdge) {
 }
 
 if ($RemoveEdgeData) {
+	KillEdgeProcesses
 	DeleteIfExist "$([Environment]::GetFolderPath('LocalApplicationData'))\Microsoft\Edge"
 	Write-Status "Removed any existing Edge Chromium user data." -Level Success
 	Write-Output ""
