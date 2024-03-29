@@ -10,7 +10,7 @@
 You can use the command below in PowerShell to launch the script. Alternatively, get the latest script from the [GitHub releases](https://github.com/he3als/EdgeRemover/releases/latest).
 
 ```powershell
-iex(irm get.ps1)
+iex(irm https://cdn.jsdelivr.net/gh/PencilNavigator/EdgeRemover@main/get.ps1)
 ```
 
 <p align="center">
