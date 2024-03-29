@@ -10,7 +10,7 @@ if ([double]"$($ver.Major).$($ver.Minor)" -lt "5.1") {
 if ($args[0] -eq "-ClearUpdateBlocks") {
     $download = "https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/ClearUpdateBlocks.ps1"
 } else {
-    $download = "https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/RemoveEdge.ps1"
+    $download = "https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@latest/RemoveEdge.ps1"
 }
 
 $temp = mkdir (Join-Path $([System.IO.Path]::GetTempPath()) $(New-Guid))
