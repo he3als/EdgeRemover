@@ -27,6 +27,8 @@ iex "&{$(irm https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/get.ps1)} [ARGU
 
 <details>
   <summary>Example</summary>
+
+  This would uninstall Edge, remove Edge's user-data, and install Edge WebView:
   ```powershell
   iex "&{$(irm https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/get.ps1)} -UninstallEdge -RemoveEdgeData -InstallWebView"
   ```
