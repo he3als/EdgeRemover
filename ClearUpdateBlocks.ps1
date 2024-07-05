@@ -35,3 +35,5 @@ if (!(Test-Path $EdgeUpdateOrchestrator) -and (Test-Path $EdgeUpdateDisabled)) {
     Write-Output "Adding EdgeUpdate back to Windows Update..."
     Move-Item -Path $EdgeUpdateDisabled -Destination $EdgeUpdateOrchestrator -Force
 }
+
+if (!$Silent) { $null = Read-Host "Done, press Enter to exit..." }

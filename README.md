@@ -22,14 +22,21 @@ iex(irm https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/get.ps1)
 Download the script and run `Get-Help .\RemoveEdge.ps1` to see its options. You can either use the downloaded file directly with these arguments or put them into the snippet below:
 
 ```powershell
-iex (&{$(irm https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/get.ps1)} [ARGUMENTS HERE])
+iex "&{$(irm https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/get.ps1)} [ARGUMENTS HERE]"
 ```
+
+<details>
+  <summary>Example</summary>
+  ```powershell
+  iex "&{$(irm https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/get.ps1)} -UninstallEdge -RemoveEdgeData -InstallWebView"
+  ```
+</details>
 
 ### 🫧 Clearing Edge Blocks
 You can use the command below in PowerShell to clear all EdgeUpdate policies, including those that block the reinstallation and update of Edge or WebView.
 
 ```powershell
-iex (&{$(irm https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/get.ps1)} -ClearUpdateBlocks)
+iex "&{$(irm https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/get.ps1)} -ClearUpdateBlocks"
 ```
 
 ### ✅ Additional Credits

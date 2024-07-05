@@ -1,8 +1,20 @@
-$ver = $PSVersionTable.PSVersion
-if ([double]"$($ver.Major).$($ver.Minor)" -lt "5.1") {
-    Write-Output "This script requires PowerShell 5.1 or above, as well as Windows 10 or 11."
-    Start-Sleep 2
+function ExitPause($message = 'Press Enter to exit...') {
+    if ($args) {
+        Start-Sleep 2
+    } else {
+        $null = Read-Host $message
+    }
     exit 1
+}
+
+$ver = $PSVersionTable.PSVersion
+if (($null -eq $ver) -or ([double]"$($ver.Major).$($ver.Minor)" -lt "5.1")) {
+    Write-Output "This script requires PowerShell 5.1 or above, as well as Windows 10 or 11."
+    ExitPause
+}
+if ([System.Environment]::OSVersion.Version.Major -lt 10) {
+    Write-Output "This script requires Windows 10 or 11."
+    ExitPause
 }
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
@@ -19,13 +31,11 @@ $file = "$temp\RemoveEdge.ps1"
 Invoke-WebRequest -Uri $download -Out $file -UseBasicParsing
 if (!$?) {
     Write-Output "Failed to download the Edge script!"
-    Start-Sleep 2
-    exit 1
+    ExitPause
 }
 
 Start-Process -FilePath "powershell" -Verb RunAs -ArgumentList "-NoP -EP Unrestricted -File `"$file`" $args"
 if (!$?) {
     Write-Output "Failed to start the Edge script! $_"
-    Start-Sleep 2
-    exit 1
+    ExitPause
 }
