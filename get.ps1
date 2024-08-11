@@ -34,7 +34,7 @@ if (!$?) {
     ExitPause
 }
 
-Start-Process -FilePath "powershell" -Verb RunAs -ArgumentList "-NoP -EP Unrestricted -File `"$file`" $args" -NoNewWindow
+Start-Process -FilePath "powershell" -Verb RunAs -ArgumentList "-NoP -EP Unrestricted -File `"$file`" $args"
 if (!$?) {
     Write-Output "Failed to start the Edge script! $_"
     ExitPause
