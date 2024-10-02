@@ -181,7 +181,7 @@ function RemoveEdgeChromium([bool]$AlreadyUninstalled) {
 		UninstallStringFail
 	} else {
 		# split uninstall string for path & args
-		$uninstallPath, $uninstallArgs = $uninstallString -split '"' |
+		$uninstallPath, $uninstallArgs = $uninstallString -split '"', 3 |
 			Where-Object { $_ } |
 			ForEach-Object { [System.Environment]::ExpandEnvironmentVariables($_.Trim()) }
 
