@@ -41,6 +41,16 @@ You can use the command below in PowerShell to clear all EdgeUpdate policies, in
 iex "&{$(irm https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/get.ps1)} -ClearUpdateBlocks"
 ```
 
+### ❓ Troubleshooting
+
+If Edge won't uninstall, try:
+
+1. Reinstalling Edge to repair it using the script
+2. Making sure that Windows is up to date
+3. Making sure that Edge is up to date
+
+If it still doesn't work, [make an issue](https://github.com/he3als/EdgeRemover/issues).
+
 ### ✅ Additional Credits
 
 - [Xyueta](https://github.com/Xyueta) - minor bug fixes
