@@ -45,7 +45,7 @@ iex "&{$(irm https://cdn.jsdelivr.net/gh/he3als/EdgeRemover@main/get.ps1)} -Clea
 
 If Edge won't uninstall, try:
 
-1. Reinstalling Edge to repair it using the script
+1. Repairing Edge
 2. Making sure that Windows is up to date
 3. Making sure that Edge is up to date
 
