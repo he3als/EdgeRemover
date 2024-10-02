@@ -177,6 +177,7 @@ function RemoveEdgeChromium([bool]$AlreadyUninstalled) {
 	$uninstallKeyPath = "$baseKey\Windows\CurrentVersion\Uninstall\Microsoft Edge"
 	$uninstallString = (Get-ItemProperty -Path $uninstallKeyPath -EA 0).UninstallString
 	if ([string]::IsNullOrEmpty($uninstallString) -and ($msis.Count -le 0)) {
+		$uninstallString = $null
 		UninstallStringFail
 	} else {
 		# split uninstall string for path & args
@@ -186,6 +187,7 @@ function RemoveEdgeChromium([bool]$AlreadyUninstalled) {
 
 		# check if fully qualified (should normally be), otherwise it could be null or something in the working dir
 		if (![System.IO.Path]::IsPathRooted($uninstallPath) -or !(Test-Path $uninstallPath -PathType Leaf)) {
+			$uninstallPath = $null
 			UninstallStringFail
 		}
 	}
