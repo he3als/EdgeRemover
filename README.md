@@ -2,7 +2,7 @@
   <img src="banner.png" alt="EdgeRemover banner" width="800">
 </p>
 
-<p align="center"><b>A PowerShell script that aims to non-forcefully uninstall or reinstall Microsoft Edge on Windows 10 & 11.</b></p>
+<p align="center"><b>A PowerShell script that non-forcefully uninstalls or reinstalls Microsoft Edge on Windows 10 & 11.</b></p>
 
 ---
 
