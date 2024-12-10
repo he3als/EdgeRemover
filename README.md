@@ -2,9 +2,17 @@
   <img src="banner.png" alt="EdgeRemover banner" width="800">
 </p>
 
-<p align="center"><b>A PowerShell script that non-forcefully uninstalls or reinstalls Microsoft Edge on Windows 10 & 11.</b></p>
+<p align="center"><b>A PowerShell script that correctly uninstalls or reinstalls Microsoft Edge on Windows 10 & 11.</b></p>
 
 ---
+
+### 🎉 Features
+
+- Remove Edge with its own uninstaller, meaning there aren't leftovers, alongside no breakage as nothing is hardcoded
+- Multiple fallback methods for uninstallation
+- Can remove Edge installed with a `.msi`
+- Ability to reinstall Edge and WebView2
+- Implementable in scripts with parameters
 
 ### ⬇️ Usage
 You can use the command below in PowerShell to launch the script. Alternatively, get the latest script from the [GitHub releases](https://github.com/he3als/EdgeRemover/releases/latest).
